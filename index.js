@@ -1,19 +1,21 @@
-const express = require("express")
-const app = express()
+import mysql from 'mysql2';
 
-require('dotenv').config()
+import dotenv from 'dotenv';
+dotenv.config();
 
-app.use(express.urlencoded({extended: false}))
-app.use(express.json())
+const pool = mysql.createPool({
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
+});
 
-const postsRouter = require('./routes/posts.router')
-const authRouter = require('./routes/auth.router')
-
-app.use("/api/v1/posts", postsRouter)
-app.use("/api/v1/auth", authRouter)
-
-const PORT = process.env.PORT || 5000
-
-app.listen(PORT, () => {
-    console.log("Server is running....")
+pool.getConnection((err, conn) => {
+    if(err) console.log(err)
+    console.log("Connected successfully")
 })
+
+export default pool.promise();
