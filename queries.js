@@ -1,7 +1,7 @@
 import pool from './index.js';
 
-const getData = {
-    leaderboard: async (req, res) => { 
+const query = {
+    getLeaderboard: async (req, res) => { 
         try{
             const [rows] = await pool.query("SELECT UID, Name, Score, Country FROM mydata WHERE YEARWEEK(Timestamp, 1) = YEARWEEK(NOW(), 1) ORDER BY Score DESC LIMIT 200;");
             res.json({
@@ -15,7 +15,7 @@ const getData = {
             });
         }
     },
-    lastWeekLeaderboard: async (req, res) => {
+    getCountryLeaderboard: async (req, res) => {
         try{
             const {Country} = req.params.Country;
             const [rows] = await pool.query(`SELECT UID, Name, Score, Country FROM mydata WHERE Country = ? AND YEARWEEK(Timestamp, 1) = YEARWEEK(NOW() - INTERVAL 1 WEEK, 1) ORDER BY Score DESC LIMIT 200;`, [Country])
@@ -30,7 +30,7 @@ const getData = {
             });
         }
     },
-    rank: async (req, res) => {
+    getRank: async (req, res) => {
         try{
             const {UID} = req.params.UID;
             const [rows] = await pool.query(`SELECT UID, Name, Score, Country, Timestamp, RANK() OVER (ORDER BY Score DESC) AS UserRank FROM mydata WHERE UID = ?;`, [UID]);
@@ -47,4 +47,4 @@ const getData = {
     }
 }
 
-export default getData;
+export default query;

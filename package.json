@@ -1,7 +1,7 @@
 {
-  "name": "blacklight-gaming",
+  "name": "apidev",
   "version": "1.0.0",
-  "description": "BlackLight Gaming Assignment",
+  "description": "Basic API Development",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Akhil Sharma",
+  "author": "Shivansh Mittal",
   "license": "ISC",
   "dependencies": {
     "@vercel/postgres": "^0.7.2",

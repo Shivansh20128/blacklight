@@ -1,10 +1,10 @@
 import express from 'express';
-import getData  from './get.js';
+import query  from './queries.js';
 
 const router = express.Router();
 
-router.get("/", getData.leaderboard);
-router.get("/uid/:UID", getData.rank);
-router.get("/country/:Country", getData.lastWeekLeaderboard);
+router.get("/country/:Country", query.getCountryLeaderboard);
+router.get("/uid/:UID", query.getRank);
+router.get("/", query.getLeaderboard);
 
 export default router;
