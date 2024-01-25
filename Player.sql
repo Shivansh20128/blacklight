@@ -1,6 +1,5 @@
 INSERT INTO Player (UID, Name, Score, Country, created)
 VALUES
-	("000593ef-f276-3ef5-bfaf-10ac53e2ca9c", "Santiago Dietrich", "241", "ES", "2024-01-03 04:51:21"),
 	("00068526-c49e-36d1-a36f-6284a201f0e1", "Stephon Bahringer", "487", "ES", "2024-01-14 00:34:24"),
 	("000ee1ae-5739-3a05-a43b-061b477624e7", "Katheryn Wintheiser", "828", "FR", "2024-01-10 07:07:05"),
 	("0033edab-0f96-34e5-b691-5262ea53ddb0", "Woodrow Christiansen", "485", "ES", "2024-01-11 20:27:36"),
