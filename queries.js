@@ -33,7 +33,7 @@ const query = {
     getRank: async (req, res) => {
         try{
             const {UID} = req.params.UID;
-            const [rows] = await pool.query(`SELECT UID, Name, Score, Country, Timestamp, RANK() OVER (ORDER BY Score DESC) AS UserRank FROM mydata WHERE UID = ?;`, [UID]);
+            const [rows] = await pool.query(`SELECT UID, Name, Score, Country, Timestamp, RANK() OVER (ORDER BY Score DESC) AS myrank FROM mydata WHERE UID = ?;`, [UID]);
             res.json({
                 data : rows[0]
             });
