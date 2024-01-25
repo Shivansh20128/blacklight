@@ -3,7 +3,7 @@ import pool from './index.js';
 const getData = {
     leaderboard: async (req, res) => { 
         try{
-            const [rows] = await pool.query("SELECT Name, Score, Country, Timestamp FROM mydata WHERE YEARWEEK(Timestamp, 1) = YEARWEEK(NOW(), 1) ORDER BY Score DESC LIMIT 200;");
+            const [rows] = await pool.query("SELECT UID, Name, Score, Country FROM mydata WHERE YEARWEEK(Timestamp, 1) = YEARWEEK(NOW(), 1) ORDER BY Score DESC LIMIT 200;");
             res.json({
                 data : rows
             });
@@ -18,7 +18,7 @@ const getData = {
     lastWeekLeaderboard: async (req, res) => {
         try{
             const {Country} = req.params.Country;
-            const [rows] = await pool.query(`SELECT Name, Score, Country, Timestamp FROM mydata WHERE Country = ? AND YEARWEEK(Timestamp, 1) = YEARWEEK(NOW() - INTERVAL 1 WEEK, 1) ORDER BY Score DESC LIMIT 200;`, [Country])
+            const [rows] = await pool.query(`SELECT UID, Name, Score, Country FROM mydata WHERE Country = ? AND YEARWEEK(Timestamp, 1) = YEARWEEK(NOW() - INTERVAL 1 WEEK, 1) ORDER BY Score DESC LIMIT 200;`, [Country])
             res.json({
                 data : rows
             });
