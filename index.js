@@ -9,13 +9,13 @@ const pool = mysql.createPool({
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE,
     waitForConnections: true,
-    connectionLimit: 10,
+    connectionLimit: 5,
     queueLimit: 0
 });
 
 pool.getConnection((err, conn) => {
     if(err) console.log(err)
-    console.log("Connected successfully")
+    console.log("Connected successfully to the SQL database!")
 })
 
 export default pool.promise();
