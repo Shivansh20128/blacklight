@@ -18,4 +18,7 @@ The database has been hosted on clever-cloud.com. The sql query used for generat
 
 If you face some problem getting the output for some query, you can manually use the queries provided in the queries.js file and the data output. I have tested all the queries and they are working perfectly.
 
+# API Hosting
+I have used render.com to host the APIs
+
 
