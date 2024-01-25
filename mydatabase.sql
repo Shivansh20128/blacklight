@@ -1,3 +1,14 @@
+-- Schema used for the table
+CREATE TABLE IF NOT EXISTS mydata (
+    UID VARCHAR(255) NOT NULL,
+    Name VARCHAR(255) NOT NULL,
+    Score INT NOT NULL,
+    Country CHAR(2) NOT NULL,
+    Timestamp TIMESTAMP NOT NULL,
+    PRIMARY KEY (UID)
+);
+
+-- Query to insert data
 INSERT INTO `mydata` VALUES
 ('00012099-a2b7-3bab-8f92-0ba925b3db50','Upton',4,'dk','2018-05-14 13:06:51'),
 ('0003e748-88ee-3d7e-bac3-a2b244921863','Zulauf',6,'jg','1973-06-11 13:45:08'),

@@ -1,8 +1,0 @@
-CREATE TABLE IF NOT EXISTS mydata (
-    UID VARCHAR(255) NOT NULL,
-    Name VARCHAR(255) NOT NULL,
-    Score INT NOT NULL,
-    Country CHAR(2) NOT NULL,
-    Timestamp TIMESTAMP NOT NULL,
-    PRIMARY KEY (UID)
-);
