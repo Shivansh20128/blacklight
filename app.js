@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
 
-app.use("/data", router)
+app.use("/API", router)
 
 const PORT = process.env.PORT || 5000
 
